@@ -1,0 +1,30 @@
+<div style="display: inline-block;">
+  <div>
+    <input id="idSearchInput" type="text" autocomplete="off" ng-focus="onFocus($event)"
+    ng-model="search.value" placeholder="{{search.placeholder}}" ng-keydown="onKeyDown($event)"
+    class="entity-selector-search-input" style="border-bottom: 0px;">
+  </div>
+  <div ng-show="tmpSelected" class="typeahead-clear" ng-click="removeSelected()" style="cursor: pointer;">
+    <i class="glyphicon glyphicon-remove"></i>
+  </div>
+</div>
+<div ng-show="entities.length && expanded" class="entity-selector-popup">
+  <div id="selectorPopup" style="height:200px; overflow: auto;">
+    <div class="list-group" style="margin-bottom: 0px; cursor: pointer;">
+      <span ng-repeat="item in search.filteredEntities = (entities | filter:search.value)"
+      class="entity-selector-list-group-item" ng-click="selectItem(item)"
+      ng-class="{active: (item.id === tmpSelected.id || $index === index.value)}">
+        <div style="margin: 0;">{{item.name}} -
+          <small style="color:darkgray;">{{item.description}}</small>
+        </div>
+      </span>
+    </div>
+    <div ng-if="(!entities.length || !search.filteredEntities.length) && expanded && !loadingData"
+    class="entity-selector-popup entity-selector-search-input-empty">
+      <span>No se encontraron resultados...</span>
+    </div>
+  </div>
+</div>
+<div ng-if="expanded && loadingData" class="entity-selector-popup">
+  <div class="loader"></div>
+</div>

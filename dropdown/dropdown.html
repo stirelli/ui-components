@@ -1,0 +1,39 @@
+<div style="display: inline-block;position: relative;top: 5px;">
+  <div class="row">
+    <div class="col-md-12" style="cursor: pointer;">
+      <div ng-if="!tmpSelected || !tmpSelected.id" class="pull-left" style="padding-right: 20px;" ng-click="toggleExpand()">
+        <span ng-show="loadingData">Cargando...</span>
+        <span ng-show="!loadingData">Por favor seleccione...</span>
+      </div>
+      <div ng-if="tmpSelected && tmpSelected.id" class="pull-left" style="padding-right: 20px;" ng-click="toggleExpand()">
+        <span>{{tmpSelected.name | limitTo: 30 }} - {{tmpSelected.description | limitTo: 10 }}</span>
+      </div>
+      <div ng-show="expanded" class="pull-right" ng-click="toggleExpand()">
+        <i class="glyphicon glyphicon-chevron-up"></i>
+      </div>
+      <div ng-show="!expanded && !tmpSelected" class="pull-right" ng-click="toggleExpand()">
+        <i class="glyphicon glyphicon-chevron-down"></i>
+      </div>
+      <div ng-show="!expanded && tmpSelected" class="pull-right" ng-click="removeSelected()">
+        <i class="glyphicon glyphicon-remove"></i>
+      </div>
+    </div>
+  </div>
+</div>
+<div ng-if="entities.length" ng-show="expanded" class="entity-selector-popup">
+  <div id="selectorPopup" style="height:200px; overflow: auto;">
+    <div class="list-group" style="margin-bottom: 0px; cursor: pointer;">
+      <a ng-repeat="item in filteredEntities = (entities | filter:search.value)" class="entity-selector-list-group-item" ng-click="selectItem(item)" ng-class="{active: item.id === tmpSelected.id}">
+        <div style="margin: 0;">{{item.name}} -
+          <small style="color:darkgray;">{{item.description}}</small>
+        </div>
+      </a>
+    </div>
+    <div ng-if="(!entities.length || !filteredEntities.length) && expanded && !loadingData" class="entity-selector-popup entity-selector-search-input-empty">
+      <span>No se encontraron resultados...</span>
+    </div>
+  </div>
+</div>
+<div ng-if="expanded && loadingData" class="entity-selector-popup">
+  <div class="loader"></div>
+</div>

@@ -1,0 +1,110 @@
+.typeahead-clear {
+	cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 143px;
+}
+
+.entity-selector-popup {
+	z-index: 8;
+	background: #5A5A5A;
+	color: #FFFFFF;
+	border: 0px;
+	box-shadow: none;
+	-webkit-appearance: none;
+	position: absolute;
+	min-width:300px;
+	width:100%;
+	box-shadow: 2px 2px 5px #000;
+}
+
+.entity-selector-search-input {
+	width: 100%;
+	height: 34px;
+	border: 0px;
+	padding: 0px;
+}
+
+.entity-selector-search-input:focus {
+	outline: 0px;
+}
+
+.entity-selector-list-group-item {
+  position: relative;
+  display: block;
+  padding: 1px 15px;
+  margin-bottom: -1px;
+  background-color: #5A5A5A;
+  border: 1px solid #5A5A5A;
+  color: #FFFFFF;
+}
+
+.entity-selector-search-input-empty {
+	text-align: center;
+	line-height: 200px;
+}
+
+.active {
+  text-decoration: none;
+  background-color: #7d7575;
+}
+
+.loader {
+  margin: 60px auto;
+  font-size: 3px;
+  position: relative;
+  text-indent: -9999em;
+  border-top: 1.1em solid rgba(255, 255, 255, 0.2);
+  border-right: 1.1em solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1.1em solid rgba(255, 255, 255, 0.2);
+  border-left: 1.1em solid #337ab7;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-animation: load8 1.1s infinite linear;
+  animation: load8 1.1s infinite linear;
+}
+.loader,
+.loader:after {
+  border-radius: 50%;
+  width: 10em;
+  height: 10em;
+}
+@-webkit-keyframes load8 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes load8 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+   color:   #FFFFFF;
+}
+
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color:    #FFFFFF;
+   opacity:  1;
+}
+
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color:    #FFFFFF;
+   opacity:  1;
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color:    #FFFFFF;
+}
